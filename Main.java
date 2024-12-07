@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 class Main {
     static Scanner scanner = new Scanner(System.in);
-    // static Index currentIndex = null;
+    static Index currentIndex = null;
         public static void main(String[] args) {
             System.out.println("\nMenu:");
             System.out.println("\tcreate \t\tCreate a new index\n\topen \t\tSet current index\n\tinsert \t\tInsert a new key/value pair into current index\n\tsearch \t\tSearch for a key in current index\n\tload \t\tinsert key/value pairs in current index in key order\n\textract \tsave all key/value pairs in current index into a file\n\tquit \t\tExit the program\n");
@@ -48,8 +48,7 @@ class Main {
         String filename = scanner.nextLine().trim();
         File file = new File(filename);
         try{
-            //create the file
-            file.createNewFile();
+            currentIndex = new Index(filename);
         }catch(Exception e){
             System.out.print("File already exists. Overwrite? (y/n): ");
             String choice = scanner.nextLine().trim().toLowerCase();
